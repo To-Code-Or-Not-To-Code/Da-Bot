@@ -18,7 +18,7 @@ if __name__ == "__main__":
     for extension in initial_extensions:
         try:
             bot.load_extension(extension)
-        except Exception as e:
+        except (FileNotFoundError, Exception) as e:
             print(f"Failed to load extension {extension}. Error {e}")
 
 
@@ -28,7 +28,7 @@ async def on_ready():
     await bot.change_presence(
         activity=discord.Activity(
             type=discord.ActivityType.watching,
-            name=f"{bot.command_prefix}help"
+            name=f"for someone to type {bot.command_prefix}help",
         )
     )
     print(discord.__version__)
