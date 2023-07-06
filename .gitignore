@@ -162,3 +162,4 @@ cython_debug/
 # Configs
 configuration.json
 .json
+*.json
